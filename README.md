@@ -32,7 +32,7 @@
 ## So How did I does this all ...
  - 1. I installed the requred software and module like anacondas and install rasa.
  - 2. Then I follw the given [youtube-channel][link] and I got idea about how can I do that.
- - 3. there is one more channel on youtube [rasa][link1]
+ - 3. there is one more channel on youtube [rasa][link1] it helped me a lot as it it official channel of rasa itself.
   
   
 [link]: https://www.youtube.com/watch?v=qmMaGicSFCU
