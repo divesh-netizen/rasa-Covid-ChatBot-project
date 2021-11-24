@@ -1,0 +1,483 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye  
+
+- story: search state cases path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_no_patients
+  - action: action_search_no_patients
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: search state cases path2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform
+  - action: action_search_no_patients
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: search state cases + location
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_no_patients
+  - action: utter_ask_location
+  - intent: inform
+  - action: action_search_no_patients
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: search cases on date
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_cases_ondate
+  - action: action_search_cases_ondate
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: search cases on date story1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_cases_ondate
+  - action: action_search_cases_ondate
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: search cases on date story2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_cases_ondate
+  - action: action_search_cases_ondate
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: 2_places
+  steps:
+  - intent: search_no_patients2
+  - action: action_search_no_patients2
+
+- story: cases between 2 days
+  steps:
+  - intent: search_cases_ondate2
+  - action: action_search_no_patients2
+
+  
+- story: cases on datename
+  steps:
+  - intent: search_cases_ondatename
+  - action: action_search_cases_ondatename
+
+- story: cases on datename_state
+  steps:
+  - intent: search_cases_ondate_state
+  - action: action_search_cases_ondatename_and_state
+
+- story: interactive_story_1
+  steps:
+  - intent: search_cases_ondatename
+  - action: action_search_cases_ondatename
+  - intent: search_no_patients
+    entities:
+    - state: Delhi
+  - slot_was_set:
+    - state: Delhi
+  - action: action_search_no_patients
+  - intent: search_no_patients
+    entities:
+    - state: Delhi
+  - slot_was_set:
+    - state: Delhi
+  - action: action_search_no_patients
+  - intent: search_cases_ondate
+    entities:
+    - day: '2021-02-02'
+  - slot_was_set:
+    - day: '2021-02-02'
+  - action: action_search_cases_ondate
+  - intent: search_cases_ondate
+    entities:
+    - day: 2021-1-1
+  - slot_was_set:
+    - day: 2021-1-1
+  - action: action_search_cases_ondate
+  - intent: search_cases_ondate
+  - intent: search_cases_ondate_state
+  - action: action_search_cases_ondatename_and_state
+
+- story: interactive_story_1
+  steps:
+  - intent: search_cases_ondate_state
+    entities:
+    - state: Delhi
+    - day: '2021-01-02'
+  - slot_was_set:
+    - day: '2021-01-02'
+  - slot_was_set:
+    - state: Delhi
+  - action: action_search_cases_ondate_and_state
+  - intent: search_cases_ondate_state
+    entities:
+    - state: Assam
+    - day: '2021-04-04'
+  - slot_was_set:
+    - day: '2021-04-04'
+  - slot_was_set:
+    - state: Assam
+  - action: action_search_cases_ondate_and_state
+
+- story: interactive_story_1
+  steps:
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '3'
+    - month: jan
+  - slot_was_set:
+    - month: jan
+  - slot_was_set:
+    - monthday: '3'
+  - action: action_search_cases_ondatename
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '3'
+    - month: feb
+  - slot_was_set:
+    - month: feb
+  - slot_was_set:
+    - monthday: '3'
+  - action: action_search_cases_ondatename
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '3'
+    - month: march
+  - slot_was_set:
+    - month: march
+  - slot_was_set:
+    - monthday: '3'
+  - action: action_search_cases_ondatename
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '13'
+    - month: april
+  - slot_was_set:
+    - month: april
+  - slot_was_set:
+    - monthday: '13'
+  - action: action_search_cases_ondatename
+  - intent: search_cases_ondatename_and_state
+    entities:
+    - state: Delhi
+    - monthday: '13'
+    - month: April
+  - slot_was_set:
+    - state: Delhi
+  - slot_was_set:
+    - month: April
+  - slot_was_set:
+    - monthday: '13'
+  - action: action_search_cases_ondatename_and_state
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: search_cases_ondatename_and_state
+    entities:
+    - state: Goa
+    - monthday: '17'
+    - month: august
+  - slot_was_set:
+    - state: Goa
+  - slot_was_set:
+    - month: august
+  - slot_was_set:
+    - monthday: '17'
+  - action: action_search_cases_ondatename_and_state
+  - intent: search_cases_ondate_state
+    entities:
+    - state: Bihar
+    - day: '2020-12-12'
+  - slot_was_set:
+    - day: '2020-12-12'
+  - slot_was_set:
+    - state: Bihar
+  - action: action_search_cases_ondate_and_state
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '4'
+    - month: march
+  - slot_was_set:
+    - month: march
+  - slot_was_set:
+    - monthday: '4'
+  - action: action_search_cases_ondatename
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '13'
+    - month: september
+  - slot_was_set:
+    - month: september
+  - slot_was_set:
+    - monthday: '13'
+  - action: action_search_cases_ondatename
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '14'
+    - month: feb
+  - slot_was_set:
+    - month: feb
+  - slot_was_set:
+    - monthday: '14'
+  - action: action_search_cases_ondatename
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: search_no_patients2
+    entities:
+    - state: Delhi
+    - state: Goa
+  - slot_was_set:
+    - state: Goa
+  - action: action_search_no_patients2
+  - intent: search_no_patients2
+    entities:
+    - state: Assam
+    - state: Delhi
+  - slot_was_set:
+    - state: Delhi
+  - action: action_search_no_patients2
+  - intent: search_cases_ondatename
+    entities:
+    - monthday: '12'
+    - month: march
+    - state: punjab
+  - slot_was_set:
+    - state: punjab
+  - slot_was_set:
+    - month: march
+  - slot_was_set:
+    - monthday: '12'
+  - action: action_search_cases_ondatename_and_state
+  - intent: search_cases_ondate_state
+    entities:
+    - state: tamil nadu
+    - day: '2020-11-11'
+  - slot_was_set:
+    - day: '2020-11-11'
+  - slot_was_set:
+    - state: tamil nadu
+  - action: action_search_cases_ondate_and_state
+  - intent: search_no_patients
+    entities:
+    - state: tamil nadu
+  - slot_was_set:
+    - state: tamil nadu
+  - action: action_search_no_patients
+
+- story: interactive_story_1
+  steps:
+  - intent: search_cases_ondate_state
+    entities:
+    - state: kerala
+    - day: '2020-12-12'
+  - slot_was_set:
+    - day: '2020-12-12'
+  - slot_was_set:
+    - state: kerala
+  - action: action_search_cases_ondate_and_state
+  - intent: search_cases_ondate_state
+    entities:
+    - state: kerala
+    - day: '2020-12-11'
+  - slot_was_set:
+    - day: '2020-12-11'
+  - slot_was_set:
+    - state: kerala
+  - action: action_search_cases_ondate_and_state
+  - intent: search_cases_ondate_state
+    entities:
+    - state: bihar
+    - day: '2020-10-11'
+  - slot_was_set:
+    - day: '2020-10-11'
+  - slot_was_set:
+    - state: bihar
+  - action: action_search_cases_ondate_and_state
+  - intent: search_cases_ondate_state
+    entities:
+    - state: bihar
+    - day: '2020-10-10'
+  - slot_was_set:
+    - day: '2020-10-10'
+  - slot_was_set:
+    - state: bihar
+  - action: action_search_cases_ondate_and_state
+  - intent: inform
+    entities:
+    - state: goa
+  - slot_was_set:
+    - state: goa
+  - action: action_search_no_patients
+  - intent: search_cases_ondate_state
+    entities:
+    - state: goa
+    - day: '2020-10-10'
+  - slot_was_set:
+    - day: '2020-10-10'
+  - slot_was_set:
+    - state: goa
+  - action: action_search_cases_ondate_and_state
+  - intent: search_no_patients
+    entities:
+    - state: Uttar Pradesh
+  - slot_was_set:
+    - state: Uttar Pradesh
+  - action: action_search_no_patients
+  - intent: inform
+    entities:
+    - state: Andhra Pradesh
+  - slot_was_set:
+    - state: Andhra Pradesh
+  - action: action_search_no_patients
+  - intent: out_of_scope
+  - action: utter_ask_location
+  - intent: search_cases_ondate_state
+    entities:
+    - state: karnataka
+    - day: '2020-03-18'
+  - slot_was_set:
+    - day: '2020-03-18'
+  - slot_was_set:
+    - state: karnataka
+  - action: action_search_cases_ondate_and_state
+  - intent: inform
+    entities:
+    - state: karnataka
+  - slot_was_set:
+    - state: karnataka
+  - action: action_search_no_patients
+  - intent: search_cases_ondate
+    entities:
+    - day: '2020-03-18'
+  - slot_was_set:
+    - day: '2020-03-18'
+  - action: action_search_cases_ondate
+
+- story: interactive_story_1
+  steps:
+  - intent: search_cases_ondate_state
+    entities:
+    - state: bihar
+    - day: '2020-10-19'
+    - state: bihar
+    - day: '2020-11-11'
+  - slot_was_set:
+    - day: '2020-11-11'
+  - slot_was_set:
+    - state: bihar
+  - action: action_search_cases_ondate_and_state
+  - intent: search_cases_ondatename_and_state
+    entities:
+    - state: Goa
+    - monthday: '2'
+    - month: august
+  - slot_was_set:
+    - state: Goa
+  - slot_was_set:
+    - month: august
+  - slot_was_set:
+    - monthday: '2'
+  - action: action_search_cases_ondatename_and_state
+  - intent: search_cases_ondatename_and_state
+    entities:
+    - state: Goa
+    - monthday: '13'
+    - month: march
+  - slot_was_set:
+    - state: Goa
+  - slot_was_set:
+    - month: march
+  - slot_was_set:
+    - monthday: '13'
+  - action: action_search_cases_ondatename_and_state
+  - intent: Wrong Input
+    entities:
+    - month: march
+    - monthday: '4'
+  - slot_was_set:
+    - month: march
+  - slot_was_set:
+    - monthday: '4'
+  - action: action_restart
+
+- story: interactive_story_2
+  steps:
+  - action: utter_did_that_help
+  - intent: search_cases_ondatename_and_state
+    entities:
+    - state: goa
+    - monthday: '17'
+    - month: march
+  - slot_was_set:
+    - state: goa
+  - slot_was_set:
+    - month: march
+  - slot_was_set:
+    - monthday: '17'
+  - action: action_search_cases_ondatename_and_state
+  - intent: search_cases_ondatename_and_state
+    entities:
+    - state: kerala
+    - monthday: 4 may
+    - state: kerala
+    - month: '3'
+    - month: may
+  - slot_was_set:
+    - state: kerala
+  - slot_was_set:
+    - month: may
+  - slot_was_set:
+    - monthday: 4 may
+  - action: action_search_cases_ondatename_and_state

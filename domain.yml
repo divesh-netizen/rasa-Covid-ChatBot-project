@@ -1,0 +1,72 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- search_cases_ondatename_and_state
+- Wrong Input
+- search_cases_ondate_state
+- search_no_patients
+- out_of_scope
+- search_cases_ondate
+- inform
+- search_cases_ondatename
+- search_no_patients2
+- goodbye
+- affirm
+- search_cases_ondate2
+- search_cases_ondate_and_state
+- greet
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- thankyou
+entities:
+- day
+- month
+- monthday
+- state
+slots:
+  day:
+    type: text
+    influence_conversation: true
+  state:
+    type: text
+    influence_conversation: true
+  month:
+    type: text
+    influence_conversation: true
+  monthday:
+    type: text
+    influence_conversation: true
+responses:
+  utter_ask_location:
+  - text: Please provide the name of the state.
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: |
+      Hey! 
+      I am a bot. 😀😀😀
+      What Can I do for You
+  utter_cheer_up:
+  - text: Everything will be all right!
+  utter_did_that_help:
+  - text: Was that helpful?
+  utter_happy:
+  - text: Great, carry on!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+actions:
+- action_search_cases_ondate
+- action_search_cases_ondate2
+- action_search_cases_ondate_and_state
+- action_search_cases_ondatename
+- action_search_cases_ondatename_and_state
+- action_search_no_patients
+- action_search_no_patients2
+- utter_ask_location
+- utter_did_that_help
+- utter_goodbye
+- utter_greet

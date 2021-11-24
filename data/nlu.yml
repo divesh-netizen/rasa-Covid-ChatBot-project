@@ -1,0 +1,455 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you are of no help
+    - this is not helpful at all
+    - tell me thw whether
+    - it isn't working
+    - never mind
+    - I want to do something else
+    - I changed my mind
+    - stop asking
+    - are you a fool
+    - I want pizza
+- intent: thankyou
+  examples: |
+    - okay great thanks
+    - thank you
+    - thanks
+    - it was great thank you
+    - thanks bye
+    - that's great
+- intent: search_no_patients
+  examples: |
+    - how many patients are in [West Bengal](state)
+    - number of cases in [Kerala](state)
+    - cases in [Uttarakhand](state)
+    - how many cases in [Telangana](state)
+    - how many cases in [tamil nadu]{"entity": "state", "value": "Tamli Nadu"}
+    - how many patients are in [Tamil Nadu](state)
+    - number of cases in [Tripura](state)
+    - cases in [Sikkim](state)
+    - how many cases in [Rajasthan](state)
+    - how many cases in [Odisha](state)
+    - how many patients are in [Nagaland](state)
+    - [Lakshadweep](state)
+    - number of cases in [Madhya Pradesh](state)
+    - cases in [Maharashtra](state)
+    - how many cases in [Meghalaya](state)
+    - how many cases in [Manipur](state)
+    - how many patients are in [Mizoram](state)
+    - number of cases in [Lakshadweep](state)
+    - cases in [Assam](state)
+    - how many cases in [Bihar](state)
+    - how many cases in [Delhi](state)
+    - total cases in [Delhi](state)
+    - cases in [tamil nadu]{"entity": "state", "value": "Tamli Nadu"}
+    - cases in [UP]{"entity": "state", "value": "Uttar Pradesh"}
+- intent: search_cases_ondate
+  examples: |
+    - cases on [2-05-2020](day)
+    - how many cases on [12-11-2020](day)
+    - how many cases on [08-12-2020](day)
+    - cases on [10 april](day)
+    - how many cases on [2021-10-10](day)
+    - [2020-10-10](day)
+    - how many cases on [2021-08-07](day)
+    - [2021-08-07](day)
+    - how many cases on [2021-5-6](day)
+    - how many cases in [2021-04-06](day)
+    - cases on [16-08-2021](day)
+    - how many cases on [10-09-2021](day)
+    - [11-4-2021](day)
+    - cases on [11-03-2021](day)
+    - how many cases on [02-04-2021](day)
+    - [15-04-2021](day)
+    - [07-02-2021](day)
+    - [12-12-2021](day)
+    - cases on [2021-02-02](day)
+    - [2021-10-10](day)
+    - [2020-03-18](day)
+- intent: search_no_patients2
+  examples: |
+    - how many patients are in [West Bengal](state) and [Kerala](state)
+    - number of cases in [Kerala](state) and [Uttarakhand](state) combined
+    - cases in [Uttarakhand](state), [Telangana](state)
+    - how many cases in [Telangana](state) and [tamil nadu]{"entity": "state", "value": "Tamli Nadu"}
+    - how many cases in [tamil nadu]{"entity": "state", "value": "Tamli Nadu"} and [Sikkim](state)
+    - how many patients are in [tamil nadu]{"entity": "state", "value": "Tamli Nadu"}, [Sikkim](state)
+    - number of cases in [Tripura](state) and [Sikkim](state)
+    - cases in [Sikkim](state), [Rajasthan](state)
+    - how many cases in [Rajasthan](state) and [Odisha](state) combined
+    - how many cases in [Odisha](state), [Nagaland](state) combined
+    - how many patients are in [Nagaland](state) and [Odisha](state)
+    - [Lakshadweep](state) and [Sikkim](state)
+    - number of cases in [Madhya Pradesh](state) and [Sikkim](state)
+    - cases in [Maharashtra](state), [Sikkim](state)
+    - how many cases in [Meghalaya](state), [Maharashtra](state) combined
+    - how many cases in [Manipur](state) and [Meghalaya](state)
+    - how many patients are in [Mizoram](state) and [Lakshadweep](state)
+    - number of cases in [Lakshadweep](state) and [Meghalaya](state)
+    - cases in [Assam](state) and [Meghalaya](state)
+    - how many cases in [Bihar](state) and [Assam](state)
+    - how many cases in [Delhi](state), [Bihar](state)
+    - total cases in [Delhi](state) and [Bihar](state)
+    - [Delhi](state) and [Goa](state)
+    - Cases in [Assam](state) and [Delhi](state) combined
+- intent: search_cases_ondate2
+  examples: |
+    - how many cases on [08-May-20](day) to [3 May 2021](day)
+    - [11-04-2021](day) to [12-12-2021](day)
+    - cases from [11-03-2021](day) to [12-12-2021](day)
+    - how many cases from [22-04-2021](day) to [12-12-2021](day)
+    - [15-04-2021](day)
+    - [12-12-2021](day) to [07-02-2021](day)
+    - cases from [2021-02-02](day) to [12-12-2021](day)
+    - [2021-01-04](day) to [2021-02-02](day)
+- intent: search_cases_ondatename
+  examples: |
+    - how many cases in [January](month) [25](monthday)
+    - cases on [February](month) [2](monthday)
+    - cases on [2](monthday) [March](month)
+    - how many cases in [April](month) [25](monthday)
+    - how many cases in [May](month) [25](monthday)
+    - cases on [June](month) [2](monthday)
+    - cases on [2](month) [July](monthday)
+    - how many cases in [August](month) [25](monthday)
+    - cases on [September](month) [2](monthday)
+    - cases on [2](monthday) [October](month)
+    - how many cases in [November](month) [25](monthday)
+    - cases on [December](month) [2](monthday)
+    - how many cases in [Jan](month) [25](monthday)
+    - cases on [Feb](month) [2](monthday)
+    - cases on [2](monthday) [Mar](month)
+    - how many cases in [Apr](month) [25](monthday)
+    - cases on [Jun](monthday) [2](day)
+    - cases on [2](monthday) [Jul](month)
+    - how many cases in [Aug](month) [25](monthday)
+    - cases on [Sept](month) [2](monthday)
+    - cases on [2](monthday) [Oct](month)
+    - how many cases in [Nov](month) [25](monthday)
+    - cases on [Dec](month) [2](monthday)
+    - [January](month) [25](monthday)
+    - [February](month) [2](monthday)
+    - [2](monthday) [March](month)
+    - [April](month) [25](monthday)
+    - [May](month) [25](monthday)
+    - [June](month) [2](monthday)
+    - [2](monthday) [July](month)
+    - [August](month) [25](monthday)
+    - [September](month) [2](monthday)
+    - [2](monthday) [October](month)
+    - [November](month) [25](monthday)
+    - [December](month) [2](monthday)
+    - [Jan](month) [25](monthday)
+    - [Feb](month) [2](monthday)
+    - [2](monthday) [Mar](month)
+    - [Apr](month) [25](monthday)
+    - [Jun](month) [2](monthday)
+    - [2](month) [Jul](monthday)
+    - [Aug](month) [25](monthday)
+    - [Sept](month) [2](monthday)
+    - [2](monthday) [Oct](monthday)
+    - [Nov](month) [25](monthday)
+    - [Dec](month) [2](monthday)
+    - [3](monthday) [jan](month)
+    - [3](monthday) [feb](month)
+    - [3](monthday) [march](month)
+    - [13](monthday) [april](month)
+    - [4](monthday) [march](month)
+    - [13](monthday) [september](month)
+    - [14](monthday) [feb](month)
+    - cases on [12](monthday) [march](month) in [punjab](state)
+- intent: search_cases_ondate_state
+  examples:
+  - text: |
+      how many cases in [Kerala](state) on [2021-01-01](day)
+  - text: |
+      cases on [2021-04-05](day) in [Kerala](state)
+  - text: |
+      cases on [2-05-2020]{"entity": "day", "value": "2020-05-02"} in //////////////////////////////
+  - text: |
+      how many cases on [2021-10-10](day) in [tamil nadu]{"entity": "state", "value": "Tamli Nadu"}
+  - text: |
+      how many cases on [2021-08-07](day) [tamil nadu]{"entity": "state", "value": "Tamli Nadu"}
+  - text: |
+      [2021-8-7](day) [Goa](state)
+  - text: |
+      how many cases on [2021-05-06](day) in [Goa](state)
+  - text: |
+      how many cases in [2021-04-06](day) in [Goa](state)
+  - text: |
+      [Haryana](state) cases on [16-08-2021](day)
+  - text: |
+      [Chhattisgarh](state) [11-4-2021]{"entity": "day", "value": "2021-04-11"}
+  - text: |
+      cases on [11-3-2021](day) in [Goa](state)
+  - text: |
+      how many cases on [2-4-2021](day) in [Goa](state)
+  - text: |
+      [15-04-2021](day) [Chandigarh](state)
+  - text: |
+      [Assam](state) on [07-02-2021](day)
+  - text: |
+      [12-12-2021](day) [Andaman and Nicobar Islands](state)
+  - text: |
+      cases on [2021-02-02](day) in [Chandigarh](state)
+  - text: |
+      [2021-1-1](day) [Andhra Pradesh](state)
+  - text: |
+      cases in [Delhi](state) on [2021-01-02](day)
+  - text: |
+      How many cases were there in [Assam](state) on [2021-04-04](day)
+  - text: |
+      [Bihar](state) [2020-12-12](day)
+  - text: |
+      cases in [tamil nadu]{"entity": "state", "value": "Tamli Nadu"} on [2020-11-11](day)
+  - text: |
+      What is the cases in [kerala](state) on [2020-12-12](day)
+  - text: |
+      cases in [kerala](state) on [2020-12-11](day)
+  - text: |
+      [bihar](state) [2020-10-11](day)
+  - text: |
+      [bihar](state) [2020-10-10](day)
+  - text: |
+      [goa](state) on [2020-10-10](day)
+  - text: |
+      [karnataka](state) [2020-03-18](day)
+  - text: |
+      [bihar](state) [2020-10-19](day)
+      [bihar](state) on [2020-11-11](day)
+- intent: inform
+  examples: |
+    - [Andhra Pradesh](state)
+    - [andhra pradesh]{"entity": "state", "value": "Tamli Nadu"}
+    - [Andaman and Nicobar Islands](state)
+    - [Andaman]{"entity": "state", "value": "Andaman and Nicobar Islands"}
+    - [andaman]{"entity": "state", "value": "Andaman and Nicobar Islands"}
+    - [andaman and nicobar islands]{"entity": "state", "value": "Andaman and Nicobar Islands"}
+    - [andaman and nicobar]{"entity": "state", "value": "Andaman and Nicobar Islands"}
+    - [andaman nicobar]{"entity": "state", "value": "Andaman and Nicobar Islands"}
+    - [Arunachal Pradesh](state)
+    - [arunachal pradesh]{"entity": "state", "value": "Arunachal Pradesh"}
+    - [Assam](state)
+    - [Bihar](state)
+    - [Chandigarh](state)
+    - [Chhattisgarh](state)
+    - [Dadra and Nagar Haveli and Daman and Diu](state)
+    - [dadra and nagar haveli and daman and diu]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [dadra]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [daman]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [diu]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [Dadra]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [Daman]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [Diu]{"entity": "state", "value": "Dadra and Nagar Haveli and Daman and Diu"}
+    - [Delhi](state)
+    - [Goa](state)
+    - [Gujarat](state)
+    - [Haryana](state)
+    - [Himachal Pradesh](state)
+    - [himachal pradesh]{"entity": "state", "value": "Himachal Pradesh"}
+    - [Himachal]{"entity": "state", "value": "Himachal Pradesh"}
+    - [himachal]{"entity": "state", "value": "Himachal Pradesh"}
+    - [Jharkhand](state)
+    - [Jammu and Kashmir](state)
+    - [jammu and kashmir]{"entity": "state", "value": "Jammu and Kashmir"}
+    - [jammu]{"entity": "state", "value": "Jammu and Kashmir"}
+    - [kashmir]{"entity": "state", "value": "Jammu and Kashmir"}
+    - [Jammu]{"entity": "state", "value": "Jammu and Kashmir"}
+    - [Kashmir]{"entity": "state", "value": "Jammu and Kashmir"}
+    - [Kerala](state)
+    - [Karnataka](state)
+    - [Ladakh](state)
+    - [Lakshadweep](state)
+    - [Mizoram](state)
+    - [Meghalaya](state)
+    - [Manipur](state)
+    - [Madhya Pradesh](state)
+    - [Maharashtra](state)
+    - [Nagaland](state)
+    - [Odisha](state)
+    - [Puducherry](state)
+    - [Punjab](state)
+    - [Rajasthan](state)
+    - [Sikkim](state)
+    - [Telengana](state)
+    - [Tamil Nadu](state)
+    - [tamil nadu]{"entity": "state", "value": "Tamil Nadu"}
+    - [Tripura](state)
+    - [Uttar Pradesh](state)
+    - [uttar pradesh]{"entity": "state", "value": "Uttar Pradesh"}
+    - [up]{"entity": "state", "value": "Uttar Pradesh"}
+    - [Uttarakhand](state)
+    - [West Bengal](state)
+    - [west bengal]{"entity": "state", "value": "West Bengal"}
+    - [wb]{"entity": "state", "value": "West Bengal"}
+    - [goa](state)
+    - [andhra pradesh]{"entity": "state", "value": "Andhra Pradesh"}
+    - [karnataka](state)
+- intent: search_cases_ondatename_and_state
+  examples:
+  - text: |
+      cases in [Delhi](state) on [13](monthday) [April](month)
+  - text: |
+      cases in [Goa](state) on [17](monthday) [august](month)
+  - text: |
+      [Goa](state) on [2](monthday) [august](month)
+  - text: |
+      [Goa](state) on [13](monthday) [march](month)
+  - text: |
+      [goa](state) on [17](monthday) [march](month)
+  - text: |
+      [kerala](state)[kerala](state) on [4 may](monthday)
+      kerala on [3](month) [may](month)
+- intent: Wrong Input
+  examples: |
+    - cases in [march](month) on [4](monthday) april
+    - case in [march](month) on [4](monthday)
+    - case in [march](month)
+    - cases on [1](monthday)
+- synonym: Tamil Nadu
+  examples: |
+    - tamil nadu
+- synonym: Uttar Pradesh
+  examples: |
+    - UP
+    - uttar pradesh
+    - up
+- synonym: '2020-05-02'
+  examples: |
+    - 2-05-2020
+- synonym: '2021-04-11'
+  examples: |
+    - 11-4-2021
+- synonym: Tamli Nadu
+  examples: |
+    - andhra pradesh
+- synonym: Andaman and Nicobar Islands
+  examples: |
+    - Andaman
+    - andaman
+    - andaman and nicobar islands
+    - andaman and nicobar
+    - andaman nicobar
+- synonym: Arunachal Pradesh
+  examples: |
+    - arunachal pradesh
+- synonym: Dadra and Nagar Haveli and Daman and Diu
+  examples: |
+    - dadra and nagar haveli and daman and diu
+    - dadra
+    - daman
+    - diu
+    - Dadra
+    - Daman
+    - Diu
+- synonym: Himachal Pradesh
+  examples: |
+    - himachal pradesh
+    - Himachal
+    - himachal
+- synonym: Jammu and Kashmir
+  examples: |
+    - jammu and kashmir
+    - jammu
+    - kashmir
+    - Jammu
+    - Kashmir
+- synonym: West Bengal
+  examples: |
+    - west bengal
+    - wb
