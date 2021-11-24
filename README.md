@@ -3,8 +3,9 @@
 
 ## This one is basic chatbot created using Rasa ....
 </br>
+</br>
 ## How it work.....
->....-
+> step
   - we can use this chatbot to ask latest and previous cases of covid-19 ..
   -  we can ask by the name of state or by the specific date like --- bihar or 2021-02-17
   - we can also ask by the date name like --- 02 may 2021
@@ -17,7 +18,7 @@
 ## So Now How can you run this project on your system ...
 > pre-requisite
   - you can follw [here][link] you will get how to install rasa on your window system.
->steps - 
+> steps - 
   - after installing import this repository in your system 
   - open that repository in any of code editor
   - go to terminal and run the following command  - rasa run actions
