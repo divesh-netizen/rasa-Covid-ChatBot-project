@@ -2,9 +2,7 @@
 </br>
 
 ## This one is basic chatbot created using Rasa ....
-</br>
-</br>
-## How it work.....
+### Lets see How it work.....
 > step
   - we can use this chatbot to ask latest and previous cases of covid-19 ..
   -  we can ask by the name of state or by the specific date like --- bihar or 2021-02-17
