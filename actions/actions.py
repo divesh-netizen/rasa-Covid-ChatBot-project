@@ -234,7 +234,7 @@ class ActionSearchNoPatients2(Action):
                     state2 = i["value"]
                     break
 
-        state1 = state2.capitalize()
+        state1 = state1.capitalize()
         state2 = state2.capitalize()
         message = "Please Enter Correct State Name !"
 
