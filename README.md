@@ -4,11 +4,12 @@
 ## This one is basic chatbot created using Rasa ....
 </br>
 ## How it work.....
-- we can use this chatbot to ask latest and previous cases of covid-19 ..
--  we can ask by the name of state or by the specific date like --- bihar or 2021-02-17
-- we can also ask by the date name like --- 02 may 2021
-- we can also ask in between date by giving to date.
-- we can also ask for combined data of two state.
+>....-
+  - we can use this chatbot to ask latest and previous cases of covid-19 ..
+  -  we can ask by the name of state or by the specific date like --- bihar or 2021-02-17
+  - we can also ask by the date name like --- 02 may 2021
+  - we can also ask in between date by giving to date.
+  - we can also ask for combined data of two state.
 
 </br>
 </br>
